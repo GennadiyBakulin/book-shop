@@ -2,11 +2,16 @@ package ru.book.shop.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -60,5 +65,20 @@ public class Book {
 
   @Column(name = "type", nullable = false)
   private Type type;
+
+  @OneToMany(mappedBy = "book")
+  List<Comment> comments;
+
+  @OneToMany(mappedBy = "book")
+  List<Cart> carts;
+
+  @OneToMany(mappedBy = "book")
+  List<Favourites> favourites;
+
+  @ManyToMany
+  @JoinTable(name = "book_person",
+      joinColumns = @JoinColumn(name = "book_id"),
+      inverseJoinColumns = @JoinColumn(name = "person_id"))
+  List<Person> personList;
 
 }
