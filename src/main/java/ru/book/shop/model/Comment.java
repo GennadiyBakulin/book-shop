@@ -33,12 +33,6 @@ public class Comment {
   @Column(name = "time", nullable = false)
   private Date time;
 
-  @Column(name = "book_id")
-  private Long bookId;
-
-  @Column(name = "person_id")
-  private Long personId;
-
   @ManyToOne
   @JoinColumn(name = "book_id", referencedColumnName = "id")
   private Book book;

@@ -37,12 +37,6 @@ public class Cart {
   @Column(name = "status")
   private Boolean status;
 
-  @Column(name = "book_id")
-  private Long bookId;
-
-  @Column(name = "person_id")
-  private Long personId;
-
   @Column(name = "datetime", nullable = false)
   private Date dateTime;
 

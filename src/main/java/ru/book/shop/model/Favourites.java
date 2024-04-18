@@ -26,12 +26,6 @@ public class Favourites {
   @Column(name = "id")
   private Long id;
 
-  @Column(name = "book_id")
-  private Long personId;
-
-  @Column(name = "person_id")
-  private Long bookId;
-
   @ManyToOne
   @JoinColumn(name = "book_id")
   private Book book;
